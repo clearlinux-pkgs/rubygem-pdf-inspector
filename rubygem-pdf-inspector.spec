@@ -4,7 +4,7 @@
 #
 Name     : rubygem-pdf-inspector
 Version  : 1.2.0
-Release  : 4
+Release  : 5
 URL      : https://rubygems.org/downloads/pdf-inspector-1.2.0.gem
 Source0  : https://rubygems.org/downloads/pdf-inspector-1.2.0.gem
 Summary  : No detailed summary available
@@ -28,17 +28,17 @@ gem spec %{SOURCE0} -l --ruby > rubygem-pdf-inspector.gemspec
 gem build rubygem-pdf-inspector.gemspec
 
 %install
-gem_dir=$(ruby -e'puts Gem.default_dir')
+%global gem_dir $(ruby -e'puts Gem.default_dir')
 gem install -V \
 --local \
 --force \
---install-dir .${gem_dir} \
+--install-dir .%{gem_dir} \
 --bindir .%{_bindir} \
 pdf-inspector-1.2.0.gem
 
-mkdir -p %{buildroot}${gem_dir}
-cp -pa .${gem_dir}/* \
-%{buildroot}${gem_dir}
+mkdir -p %{buildroot}%{gem_dir}
+cp -pa .%{gem_dir}/* \
+%{buildroot}%{gem_dir}
 
 if [ -d .%{_bindir} ]; then
 mkdir -p %{buildroot}%{_bindir}
@@ -46,117 +46,20 @@ cp -pa .%{_bindir}/* \
 %{buildroot}%{_bindir}/
 fi
 
+
 %files
 %defattr(-,root,root,-)
-/usr/lib64/ruby/gems/2.2.0/cache/pdf-inspector-1.2.0.gem
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/PDF/Inspector/ExtGState/cdesc-ExtGState.ri
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/PDF/Inspector/ExtGState/extgstates-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/PDF/Inspector/ExtGState/new-c.ri
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/PDF/Inspector/ExtGState/page%3d-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/PDF/Inspector/Graphics/CapStyle/cap_style-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/PDF/Inspector/Graphics/CapStyle/cap_style_count-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/PDF/Inspector/Graphics/CapStyle/cdesc-CapStyle.ri
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/PDF/Inspector/Graphics/CapStyle/new-c.ri
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/PDF/Inspector/Graphics/CapStyle/set_line_cap_style-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/PDF/Inspector/Graphics/Color/cdesc-Color.ri
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/PDF/Inspector/Graphics/Color/color_space-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/PDF/Inspector/Graphics/Color/fill_color-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/PDF/Inspector/Graphics/Color/fill_color_count-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/PDF/Inspector/Graphics/Color/new-c.ri
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/PDF/Inspector/Graphics/Color/set_color_for_nonstroking_and_special-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/PDF/Inspector/Graphics/Color/set_color_for_stroking_and_special-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/PDF/Inspector/Graphics/Color/set_stroke_color_space-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/PDF/Inspector/Graphics/Color/stroke_color-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/PDF/Inspector/Graphics/Color/stroke_color_count-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/PDF/Inspector/Graphics/Color/stroke_color_space_count-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/PDF/Inspector/Graphics/Curve/append_curved_segment-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/PDF/Inspector/Graphics/Curve/begin_new_subpath-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/PDF/Inspector/Graphics/Curve/cdesc-Curve.ri
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/PDF/Inspector/Graphics/Curve/coords-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/PDF/Inspector/Graphics/Curve/new-c.ri
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/PDF/Inspector/Graphics/Dash/cdesc-Dash.ri
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/PDF/Inspector/Graphics/Dash/new-c.ri
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/PDF/Inspector/Graphics/Dash/set_line_dash-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/PDF/Inspector/Graphics/Dash/stroke_dash-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/PDF/Inspector/Graphics/Dash/stroke_dash_count-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/PDF/Inspector/Graphics/JoinStyle/cdesc-JoinStyle.ri
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/PDF/Inspector/Graphics/JoinStyle/join_style-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/PDF/Inspector/Graphics/JoinStyle/join_style_count-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/PDF/Inspector/Graphics/JoinStyle/new-c.ri
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/PDF/Inspector/Graphics/JoinStyle/set_line_join_style-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/PDF/Inspector/Graphics/Line/append_line-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/PDF/Inspector/Graphics/Line/begin_new_subpath-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/PDF/Inspector/Graphics/Line/cdesc-Line.ri
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/PDF/Inspector/Graphics/Line/new-c.ri
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/PDF/Inspector/Graphics/Line/points-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/PDF/Inspector/Graphics/Line/set_line_width-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/PDF/Inspector/Graphics/Line/widths-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/PDF/Inspector/Graphics/Matrix/cdesc-Matrix.ri
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/PDF/Inspector/Graphics/Matrix/concatenate_matrix-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/PDF/Inspector/Graphics/Matrix/matrices-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/PDF/Inspector/Graphics/Matrix/new-c.ri
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/PDF/Inspector/Graphics/Pattern/cdesc-Pattern.ri
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/PDF/Inspector/Graphics/Pattern/new-c.ri
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/PDF/Inspector/Graphics/Pattern/page%3d-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/PDF/Inspector/Graphics/Pattern/patterns-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/PDF/Inspector/Graphics/Rectangle/append_rectangle-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/PDF/Inspector/Graphics/Rectangle/cdesc-Rectangle.ri
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/PDF/Inspector/Graphics/Rectangle/new-c.ri
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/PDF/Inspector/Graphics/Rectangle/rectangles-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/PDF/Inspector/Graphics/State/cdesc-State.ri
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/PDF/Inspector/Graphics/State/new-c.ri
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/PDF/Inspector/Graphics/State/restore_graphics_state-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/PDF/Inspector/Graphics/State/restore_graphics_state_count-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/PDF/Inspector/Graphics/State/save_graphics_state-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/PDF/Inspector/Graphics/State/save_graphics_state_count-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/PDF/Inspector/Graphics/cdesc-Graphics.ri
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/PDF/Inspector/Page/cdesc-Page.ri
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/PDF/Inspector/Page/new-c.ri
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/PDF/Inspector/Page/page%3d-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/PDF/Inspector/Page/pages-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/PDF/Inspector/Page/show_text-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/PDF/Inspector/Page/show_text_with_positioning-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/PDF/Inspector/Text/cdesc-Text.ri
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/PDF/Inspector/Text/character_spacing-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/PDF/Inspector/Text/font_settings-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/PDF/Inspector/Text/kerned-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/PDF/Inspector/Text/move_text_position-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/PDF/Inspector/Text/new-c.ri
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/PDF/Inspector/Text/page%3d-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/PDF/Inspector/Text/positions-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/PDF/Inspector/Text/set_character_spacing-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/PDF/Inspector/Text/set_text_font_and_size-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/PDF/Inspector/Text/set_text_rendering_mode-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/PDF/Inspector/Text/set_word_spacing-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/PDF/Inspector/Text/show_text-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/PDF/Inspector/Text/show_text_with_positioning-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/PDF/Inspector/Text/size-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/PDF/Inspector/Text/strings-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/PDF/Inspector/Text/text_rendering_mode-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/PDF/Inspector/Text/word_spacing-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/PDF/Inspector/XObject/cdesc-XObject.ri
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/PDF/Inspector/XObject/new-c.ri
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/PDF/Inspector/XObject/page%3d-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/PDF/Inspector/XObject/page_xobjects-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/PDF/Inspector/XObject/xobject_streams-i.ri
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/PDF/Inspector/analyze-c.ri
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/PDF/Inspector/analyze_file-c.ri
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/PDF/Inspector/cdesc-Inspector.ri
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/PDF/Inspector/parse-c.ri
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/PDF/cdesc-PDF.ri
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/cache.ri
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/page-CHANGELOG.ri
-/usr/lib64/ruby/gems/2.2.0/doc/pdf-inspector-1.2.0/ri/page-README_md.ri
-/usr/lib64/ruby/gems/2.2.0/gems/pdf-inspector-1.2.0/CHANGELOG
-/usr/lib64/ruby/gems/2.2.0/gems/pdf-inspector-1.2.0/COPYING
-/usr/lib64/ruby/gems/2.2.0/gems/pdf-inspector-1.2.0/GPLv2
-/usr/lib64/ruby/gems/2.2.0/gems/pdf-inspector-1.2.0/GPLv3
-/usr/lib64/ruby/gems/2.2.0/gems/pdf-inspector-1.2.0/LICENSE
-/usr/lib64/ruby/gems/2.2.0/gems/pdf-inspector-1.2.0/README.md
-/usr/lib64/ruby/gems/2.2.0/gems/pdf-inspector-1.2.0/lib/pdf/inspector.rb
-/usr/lib64/ruby/gems/2.2.0/gems/pdf-inspector-1.2.0/lib/pdf/inspector/extgstate.rb
-/usr/lib64/ruby/gems/2.2.0/gems/pdf-inspector-1.2.0/lib/pdf/inspector/graphics.rb
-/usr/lib64/ruby/gems/2.2.0/gems/pdf-inspector-1.2.0/lib/pdf/inspector/page.rb
-/usr/lib64/ruby/gems/2.2.0/gems/pdf-inspector-1.2.0/lib/pdf/inspector/text.rb
-/usr/lib64/ruby/gems/2.2.0/gems/pdf-inspector-1.2.0/lib/pdf/inspector/xobject.rb
-/usr/lib64/ruby/gems/2.2.0/specifications/pdf-inspector-1.2.0.gemspec
+/usr/lib64/ruby/gems/2.3.0/cache/pdf-inspector-1.2.0.gem
+/usr/lib64/ruby/gems/2.3.0/gems/pdf-inspector-1.2.0/CHANGELOG
+/usr/lib64/ruby/gems/2.3.0/gems/pdf-inspector-1.2.0/COPYING
+/usr/lib64/ruby/gems/2.3.0/gems/pdf-inspector-1.2.0/GPLv2
+/usr/lib64/ruby/gems/2.3.0/gems/pdf-inspector-1.2.0/GPLv3
+/usr/lib64/ruby/gems/2.3.0/gems/pdf-inspector-1.2.0/LICENSE
+/usr/lib64/ruby/gems/2.3.0/gems/pdf-inspector-1.2.0/README.md
+/usr/lib64/ruby/gems/2.3.0/gems/pdf-inspector-1.2.0/lib/pdf/inspector.rb
+/usr/lib64/ruby/gems/2.3.0/gems/pdf-inspector-1.2.0/lib/pdf/inspector/extgstate.rb
+/usr/lib64/ruby/gems/2.3.0/gems/pdf-inspector-1.2.0/lib/pdf/inspector/graphics.rb
+/usr/lib64/ruby/gems/2.3.0/gems/pdf-inspector-1.2.0/lib/pdf/inspector/page.rb
+/usr/lib64/ruby/gems/2.3.0/gems/pdf-inspector-1.2.0/lib/pdf/inspector/text.rb
+/usr/lib64/ruby/gems/2.3.0/gems/pdf-inspector-1.2.0/lib/pdf/inspector/xobject.rb
+/usr/lib64/ruby/gems/2.3.0/specifications/pdf-inspector-1.2.0.gemspec

@@ -1,0 +1,11 @@
+v1.1.0 (8th April 2013)
+* Update to use the pdf-reader 1.0 APIs. No changes to the pdf-inspector
+  API
+
+v1.0.2 (27 October 2012)
+* Add soft mask support
+
+v1.0.1
+
+v1.0.0 (13 August 2011)
+* initial release as a standalone gem
